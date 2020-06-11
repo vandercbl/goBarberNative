@@ -1,0 +1,60 @@
+{
+    "env": {
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+		"standard",
+		"plugin:@typescript-eslint/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+		"react",
+		"react-hooks",
+		"@typescript-eslint",
+		"prettier"
+    ],
+    "rules": {
+		"prettier/prettier": "error",
+		"react/jsx-props-no-spreadingh": "off", // para não ficar com erro, quando fazemos componentes como o button, e chamamdo todas as props passando ...props, isso só faz sentido quando utilizamos typescript
+		"react/prop-types": "off", //o typescript já faz essa tipagem, problema na props children do component button
+		"no-unused-expressions": "off", // ela até faz sentido usar como on, porém quando utilizamos por exemplo formRef.current?.algumaFuncaoOuPropriedade ele dá um erro chato.
+		"react/jsx-one-expression-per-line": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"react/jsx-filename-extension": [1, {"extensions": [".tsx"]}],
+		"import/prefer-default-export": "off",
+		"@typescript-eslint/explicit-function-return-type": [ //para não ter que tipar arrow functions
+			"error",
+			{
+				"allowExpressions": true
+			}
+		],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"ts": "never",
+				"tsx": "never"
+			}
+		]
+	},
+	"settings": {
+		"import/resolver": {
+			"typescript": {}
+		}
+	}
+}

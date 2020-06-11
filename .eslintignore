@@ -1,0 +1,4 @@
+# vai ignoar dos os arquivos js de dentro de todas as minhas pastas
+**/*.js
+node_modules
+build
